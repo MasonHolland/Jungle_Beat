@@ -45,14 +45,23 @@ class LinkedListTest < Minitest::Test
     assert_equal 1, list.count
   end
 
+    def test_that_count_can_count_multiple_nodes
+    list = LinkedList.new
+    list.append("doop")
+    list.append("boop")
+    assert_equal 2, list.count
+  end
+
+  def test_can_output_mulitple_strings
+    list = LinkedList.new
+    list.append("doop")
+    list.append("boop")
+    assert_equal "doop boop", list.to_string
+  end
+  
+
+
+
 
 end
 
-
-
-# > list.head.next_node
-# => nil
-# > list.count
-# => 1
-# > list.to_string
-# => "doop"
