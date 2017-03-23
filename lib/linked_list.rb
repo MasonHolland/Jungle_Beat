@@ -1,4 +1,3 @@
-# require 'pry'
 require './lib/node'
 
 class LinkedList
@@ -29,17 +28,23 @@ attr_reader :head, :count
 
   def prepend(input)
     @count += 1
-    current = head
+    previous_head = head
     @head = Node.new(input)
-    @head.next_node = current
+    @head.next_node = previous_head
     @string_storage.prepend(input + " ")
-
   end
-  
 
- 
+  def insert(position, input)
+    shifted_node = head
+    @string_storage.insert(position + 4, input + " ")
+    (position - 1).times do
+      shifted_node = shifted_node.next_node
+    end
     
+    new_node = Node.new(input, shifted_node.next_node)
+    shifted_node.next_node = new_node
+  end
+
+
 end
 
-# binding.pry
-# ""

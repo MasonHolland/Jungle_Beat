@@ -83,6 +83,21 @@ class LinkedListTest < Minitest::Test
     assert_equal "dop", list.head.data
   end
 
+  def test_insert_works
+    list = LinkedList.new
+    list.append("doop")
+    list.append("boop")
+    list.insert(1, "woo")
+    assert_equal "woo", list.head.next_node.data
+  end
+
+  def test_string_output_works_when_inserting
+    list = LinkedList.new
+    list.append("doop")
+    list.append("boop")
+    list.insert(1, "woo")
+    assert_equal "doop woo boop", list.to_string
+  end
   
 
 
