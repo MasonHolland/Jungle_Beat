@@ -6,17 +6,18 @@ attr_reader :head, :count
 
   def initialize
     @head = nil
-    @count = 0
     @string_storage = ""
+    @count = 0
   end
   
  def to_string
       @string_storage.chomp(" ")
   end
 
+
   def append(input)
     @count += 1
-    @string_storage <<  input + " "
+    @string_storage << input + " "
       if @head.nil?
       @head = Node.new(input)
       input
@@ -25,6 +26,16 @@ attr_reader :head, :count
       input
       end
   end
+
+  def prepend(input)
+    @count += 1
+    current = head
+    @head = Node.new(input)
+    @head.next_node = current
+    @string_storage.prepend(input + " ")
+
+  end
+  
 
  
     

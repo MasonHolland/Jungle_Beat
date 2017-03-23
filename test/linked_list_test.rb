@@ -58,6 +58,31 @@ class LinkedListTest < Minitest::Test
     list.append("boop")
     assert_equal "doop boop", list.to_string
   end
+
+  def test_can_prepend_node
+    list = LinkedList.new
+    list.append("doop")
+    list.append("boop")
+    list.prepend("dop")
+    assert_equal "dop doop boop", list.to_string
+  end
+
+  def test_that_count_can_count_multiple_nodes_after_prepending
+    list = LinkedList.new
+    list.append("doop")
+    list.append("boop")
+    list.prepend("dop")
+    assert_equal 3, list.count
+  end
+
+  def test_head_node_equals_the_first_node_after_prepending
+    list = LinkedList.new
+    list.append("doop")
+    list.append("boop")
+    list.prepend("dop")
+    assert_equal "dop", list.head.data
+  end
+
   
 
 
